@@ -1,6 +1,9 @@
 import './App.css';
 import {Movielist} from'./Movieslist.js';
 import { useState } from 'react';
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+
 
 
 function App() {
@@ -26,17 +29,22 @@ function App() {
  
 
   return (
+    
     <div className="App">
       {/* <button className="button" onClick={()=>nomovies(!movie)}>➕Add movie</button> */}
-   { movie ? <button className="button" onClick={()=>nomovies(!movie)}>➕AddMovie</button>:""}
+   { movie ? <Button variant="contained" className="button" onClick={()=>nomovies(!movie)}>➕AddMovie</Button>:""}
       
     {movie?  <Movielist Movies={Movies}/> : <div className="dataform">
     
       <p>
-        <label for="Movie_name" className="Movie_name">Movie Name:</label>
-   <input type="text" id="Movie_name" name="Movie_name"  onChange={(event) => setMovieName(event.target.value)} placeholder="Movie name"/>
-  </p>
-  <p>
+      <TextField id="outlined-basic" label="Movie Name" variant="outlined"  onChange={(event) => setMovieName(event.target.value)} >MovieName:</TextField>
+      </p>
+        {/* <label for="Movie_name" className="Movie_name">Movie Name:</label>
+        <input type="text" id="Movie_name" name="Movie_name"  onChange={(event) => setMovieName(event.target.value)} placeholder="Movie name"/> */}
+ <p><TextField id="outlined-basic" label="Poster" variant="outlined" onChange={(event) => setposter(event.target.value)} /></p>
+ <p> <TextField id="outlined-basic" label="Rating" variant="outlined" onChange={(event) => setRating(event.target.value)} /></p>
+ <p> <TextField id="outlined-basic" label="Summary" variant="outlined"  onChange={(event) => setdescription(event.target.value)} /></p>
+  {/* <p>
     <label for="poster" className="poster">Poster:</label>
    <input  type="text" name="poster" id="poster"   placeholder="poster"onChange={(event) => setposter(event.target.value)}/>
   </p>
@@ -47,7 +55,7 @@ function App() {
    <p>
      <label for="Summary" className="Summary">Summary:</label>
    <textarea name="Summary" id="Summary"   placeholder="Summary"onChange={(event) => setdescription(event.target.value)}></textarea>
-   </p>
+   </p> */}
    <p className="submit"><button onClick={addnewmovie} > Submit</button></p>
   {/* <button onClick={()=>setcolors([...colors,color])}>Add color</button> */}
   </div>}

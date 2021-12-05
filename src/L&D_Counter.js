@@ -1,4 +1,5 @@
 import {useState} from "react";
+import Button from '@mui/material/Button';
 export function Counter(){
     //concept of HOOk
     //for dynamicallly changing values based on the interactive ness with users +
@@ -12,6 +13,7 @@ export function Counter(){
     //Here setlike updates the like value.
     return(
       <div className="container">
+      
        <p> <button  className="likes-dislikes" onClick={()=>setlike(like+1)}>👍 {like}</button></p>
        <p> <button  className="likes-dislikes" onClick={()=>setdislike(dislike+1)}>👎 {dislike}</button></p>
       
